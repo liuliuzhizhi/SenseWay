@@ -6,7 +6,7 @@ Page({
     loading: true,
     profile: {},       // 与 LeanCloud 字段一一对应
     maskedMobile: '',
-    computedBMI: ''
+    computedBMI: '',
   },
 
   onShow() {
@@ -29,7 +29,7 @@ Page({
         return;
       }
 
-      // 约定数据库：Class 名为 UserProfile，字段见文末说明
+      // 约定数据库：Class 名为 UserProfile
       const UserProfile = AV.Object.extend('UserProfile');
       const query = new AV.Query(UserProfile);
       query.equalTo('user', user);
@@ -53,14 +53,20 @@ Page({
         weight: profileObj.get('weight') || '',
         bmi: profileObj.get('bmi') || '', 
         allergen: profileObj.get('allergen') || '',
-        disease: profileObj.get('disease') || '',
-        taste: profileObj.get('taste') || '',
-        carnVeg: profileObj.get('carnVeg') || '',
-        dietConcept: profileObj.get('dietConcept') || ''
+        disease: profileObj.get('healthcondition') || '',
+        preference : profileObj.get('eatandhealth_ques') || '',
+        allergen: '' || profileObj.get('allergen'),
+        taste: '',
+        carnVeg: '',
+        dietConcept: ''
       };
 
       const maskedMobile = this.maskMobile(profile.mobile);
       const computedBMI = this.calcBMI(profile.height, profile.weight, profile.bmi);
+      
+      profile.taste = this.evaluate_taste (profile.preference);
+      profile.carnVeg = this.evaluate_meat (profile.preference);
+      profile.dietConcept = profile.preference.dietaryView.answer;
 
       this.setData({ profile, maskedMobile, computedBMI, loading: false });
     } catch (err) {
@@ -68,6 +74,37 @@ Page({
       wx.showToast({ title: '数据加载失败', icon: 'none' });
       this.setData({ loading: false });
     }
+  },
+
+  evaluate_taste(preference) {
+    if (!preference || !preference['flavors'] || !preference['flavors'].answer) {
+      return "未提供口味偏好";
+    }
+  
+    const mapping = (rating) => {
+      if (rating <= 2) return "讨厌";
+      if (rating === 3) return "无明显偏好";
+      if (rating >= 4) return "喜爱";
+    };
+  
+    const results = preference.flavors.answer.map(f => {
+      return `${f.label}：${mapping(f.rating)}`;
+    });
+  
+    return results.join("，");
+  },
+  
+  evaluate_meat(preference) {
+    if (!preference || !preference.meatVegRatio) {
+      return "未提供荤素偏好";
+    }
+  
+    const value = preference.meatVegRatio.answer;
+    if (value >= 0 && value <= 30) return "爱吃素";
+    if (value >= 31 && value <= 70) return "荤素均匀";
+    if (value >= 71 && value <= 100) return "爱吃荤";
+  
+    return "数据异常";
   },
 
   maskMobile(mobile) {
