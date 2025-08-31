@@ -2,10 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/message/message",
     "pages/register/register",
     "pages/home/home",
-    "pages/collect information/collect information",
     "pages/my/my",
     "pages/userprofile/userprofile",
     "pages/condition_report/condition_report",
