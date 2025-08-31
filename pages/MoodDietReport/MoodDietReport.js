@@ -1,5 +1,5 @@
 // pages/MoodDietReport/MoodDietReport.js
-const AV = getApp().AV; // 假定 LeanCloud 已被注入到 getApp().AV
+const AV = getApp().AV; 
 const app = getApp();
 
 Page({
