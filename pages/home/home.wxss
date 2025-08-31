@@ -1,0 +1,32 @@
+/* 整个页面垂直居中 */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f6f6f6;
+}
+
+.welcome {
+  font-size: 40rpx;
+  color: #333;
+  margin-bottom: 80rpx;
+}
+
+/* 按钮组纵向排布，间距 30rpx */
+.btn-group {
+  width: 80%;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 30rpx;
+  background: #07c160;
+  color: #fff;
+  border-radius: 10rpx;
+}
+
+.register {
+	margin-top: 60rpx;
+}

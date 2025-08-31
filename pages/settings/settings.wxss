@@ -1,0 +1,151 @@
+/* pages/settings/settings.wxss */
+.page {
+  background-color: #f4efe3; /* 米色背景 */
+  color: #5b3628; /* 棕色文字 */
+  font-family: "STZhongsong";
+  padding: 20rpx;
+  height: 100vh;
+}
+
+/* 深色模式覆盖 */
+.page.dark {
+  background-color: #0f1a16;
+  color: #efe9e3;
+}
+
+/* 分节标题 */
+.section-title {
+  color: #6a3f2f;
+  font-size: 34rpx;
+  margin-top: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff;
+  border-radius: 18rpx;
+  box-shadow: 0 8rpx 18rpx rgba(91,54,40,0.12);
+  padding: 10rpx;
+  margin-bottom: 18rpx;
+  overflow: hidden;
+}
+
+/* 卡片行 */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  padding: 0 12rpx;
+}
+
+/* 左侧 */
+.left {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  width: 60rpx;
+  text-align: center;
+  font-size: 36rpx;
+  margin-right: 14rpx;
+}
+.label {
+  font-size: 30rpx;
+}
+
+/* 右侧箭头 / 缓存文字 */
+.right {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25rpx;
+}
+.arrow {
+  font-size: 100rpx;
+  color: #b48d83;
+}
+.cache {
+  font-size: 28rpx;
+  color: #9a7a6b;
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background-color: #f0e6df;
+  margin: 0;
+}
+
+/* 切换开关（自定义） */
+.toggle {
+  width: 80rpx;
+  height: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-track {
+  width: 64rpx;
+  height: 34rpx;
+  border-radius: 20rpx;
+  background-color: #e6dfd7;
+  position: relative;
+  transition: background-color .18s;
+}
+.toggle-track.on {
+  background-color: #5b3628;
+}
+.toggle-thumb {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 2rpx;
+  left: 2rpx;
+  transition: left .18s, background-color .18s;
+  box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.15);
+}
+.toggle-thumb.on {
+  left: 32rpx;
+}
+
+/* 深色模式下开关反色 */
+.page.dark .card {
+  background-color: #15211d;
+  box-shadow: 0 8rpx 18rpx rgba(0,0,0,0.6);
+}
+.page.dark .divider {
+  background-color: #0f2a24;
+}
+.page.dark .toggle-track {
+  background-color: rgba(255,255,255,0.08);
+}
+.page.dark .toggle-track.on {
+  background-color: #efe9e3;
+}
+.page.dark .toggle-thumb {
+  background-color: #0f1a16;
+}
+
+/* 退出登录按钮 */
+.logout-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50rpx;
+}
+.logout-btn {
+  display: flex;
+  width: 92%;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 18rpx;
+  border: 2rpx solid #7d3a36;
+  background-color: transparent;
+  color: #7d3a36;
+  font-size: 38rpx;
+  justify-content: center;
+  align-items: center;
+}

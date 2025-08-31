@@ -1,0 +1,85 @@
+<view class="page">
+  <!-- 第一栏：折线图 + 相关性文字 -->
+  <view class="card">
+    <view class="card-header">
+      <text class="title">饮食与心情评分</text>
+    </view>
+    <view class="chart-wrap">
+      <!-- 折线图 canvas -->
+      <canvas canvas-id="lineCanvas" class="line-canvas" bindtouchstart="onLineTouch"></canvas>
+
+      <!-- 点击显示的小卡片（完全前端定位，允许覆盖折线） -->
+      <view wx:if="{{lineTooltip.show}}" class="tooltip" style="left:{{lineTooltip.left}}px; top:{{lineTooltip.top}}px;">
+        <text class="tooltip-text">{{lineTooltip.text}}</text>
+      </view>
+    </view>
+    <view class = "illustration">
+      <text class="corr" wx:if="{{corr !== null}}">Pearson相关性：{{corr}}</text>
+      <text class="corr" wx:if="{{corr === null}}">正在加载相关性...</text>
+    </view>
+  </view>
+
+  <!-- 第二栏：两个图并排 -->
+  <view class="card two-charts">
+    <view class="chart-col">
+      <view class="card-header"><text class="title">情绪触发因素</text></view>
+      <view class="chart-wrap-small">
+        <canvas canvas-id="donutCanvas" class="small-canvas1" bindtouchstart="onDonutTouch"></canvas>
+        <view wx:if="{{donutTooltip.show}}" class="tooltip small" style="left:{{donutTooltip.left}}px; top:{{donutTooltip.top}}px;">
+          <text class="tooltip-text">{{donutTooltip.text}}</text>
+        </view>
+      </view>
+      <view class="container">
+        <view class="color-row">
+          <view class="color-box" style="background-color: #083a2a; height: 25rpx; width: 50rpx;"></view>
+          <text class="color-text">工作压力</text>
+    
+          <view class="color-box" style="background-color: #01704d; height: 25rpx; width: 50rpx;"></view>
+          <text class="color-text">天气</text>
+        </view>
+
+        <view class="color-row">
+          <view class="color-box" style="background-color: #02aa75; height: 25rpx; width: 50rpx;"></view>
+          <text class="color-text">睡眠不足</text>
+    
+          <view class="color-box" style="background-color: #66f1c5; height: 25rpx; width: 50rpx;"></view>
+          <text class="color-text">其他</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="chart-col">
+      <view class="card-header"><text class="title">进食类型分布</text></view>
+      <view class="chart-wrap-small">
+        <canvas canvas-id="pieCanvas" class="small-canvas2" bindtouchstart="onPieTouch"></canvas>
+        <view wx:if="{{pieTooltip.show}}" class="tooltip small" style="left:{{pieTooltip.left}}px; top:{{pieTooltip.top}}px;">
+          <text class="tooltip-text">{{pieTooltip.text}}</text>
+        </view>
+      </view>
+      <view class="container">
+        <view class="color-row">
+          <view class="color-box" style="background-color: #083a2a; height: 25rpx; width: 50rpx;"></view>
+          <text class="color-text">超健康</text>
+    
+          <view class="color-box" style="background-color: #01704d; height: 25rpx; width: 50rpx;"></view>
+          <text class="color-text">较不健康</text>
+        </view>
+
+        <view class="color-row">
+          <view class="color-box" style="background-color: #02aa75; height: 25rpx; width: 50rpx;"></view>
+          <text class="color-text">不健康</text>
+    
+          <view class="color-box" style="background-color: #66f1c5; height: 25rpx; width: 50rpx;"></view>
+          <text class="color-text">超不健康</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="title">本周亮点</text>
+    </view>
+  </view>
+
+</view>

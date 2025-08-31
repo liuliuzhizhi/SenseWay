@@ -1,0 +1,10 @@
+<!--pages/home/home.wxml-->
+<view class="wrapper">
+  <text class="welcome">欢迎使用小程序</text>
+
+  <view class="btn-group">
+    <button class="btn" bindtap="goPageA">A</button>
+    <button class="btn" bindtap="goPageB">B</button>
+    <button class="btn" bindtap="goPageC">C</button>
+  </view>
+</view>

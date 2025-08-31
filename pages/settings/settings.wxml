@@ -1,0 +1,130 @@
+<!--pages/settings/settings.wxml-->
+<view class="page {{theme === 'dark' ? 'dark' : ''}}">
+    <!-- 账户 -->
+    <view class="section-title">账户</view>
+    <view class="card">
+      <view class="row" bindtap="goAccountSecurity">
+        <view class="left">
+          <text class="icon">🛡️</text>
+          <view class="label">账号与安全</view>
+        </view>
+        <view class="right">
+          <text class="arrow">›</text>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="row" bindtap="goPrivacy">
+        <view class="left">
+          <text class="icon">🔒</text>
+          <view class="label">隐私管理</view>
+        </view>
+        <view class="right">
+          <text class="arrow">›</text>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="row" bindtap="goSync">
+        <view class="left">
+          <text class="icon">☁️</text>
+          <view class="label">数据与同步</view>
+        </view>
+        <view class="right">
+          <text class="arrow">›</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 偏好 -->
+    <view class="section-title">偏好</view>
+    <view class="card">
+      <view class="row switch-row">
+        <view class="left">
+          <text class="icon">🔔</text>
+          <view class="label">通知提醒</view>
+        </view>
+        <view class="right">
+          <view class="toggle" data-key="notify" bindtap="toggleItem">
+            <view class="toggle-track {{settings.notify ? 'on' : 'off'}}">
+              <view class="toggle-thumb {{settings.notify ? 'on' : 'off'}}"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="row" bindtap="goLanguage">
+        <view class="left">
+          <text class="icon">🌐</text>
+          <view class="label">语言与地区</view>
+        </view>
+        <view class="right">
+          <text class="arrow">›</text>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="row switch-row">
+        <view class="left">
+          <text class="icon">🌙</text>
+          <view class="label">深色模式</view>
+        </view>
+        <view class="right">
+          <view class="toggle" data-key="darkMode" bindtap="toggleDarkMode">
+            <view class="toggle-track {{settings.darkMode ? 'on' : 'off'}}">
+              <view class="toggle-thumb {{settings.darkMode ? 'on' : 'off'}}"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 通用 -->
+    <view class="section-title">通用</view>
+    <view class="card">
+      <view class="row" bindtap="clearCache">
+        <view class="left">
+          <text class="icon">🗑️</text>
+          <view class="label">清除缓存</view>
+        </view>
+        <view class="right">
+          <text class="cache">{{cacheSize}}</text>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="row" bindtap="goAbout">
+        <view class="left">
+          <text class="icon">ℹ️</text>
+          <view class="label">关于心味斋</view>
+        </view>
+        <view class="right">
+          <text class="arrow">›</text>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="row" bindtap="goHelp">
+        <view class="left">
+          <text class="icon">💬</text>
+          <view class="label">帮助与反馈</view>
+        </view>
+        <view class="right">
+          <text class="arrow">›</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 退出登录 -->
+    <view class="logout-wrap">
+      <button class="logout-btn" bindtap="onLogout">退出登录</button>
+    </view>
+
+</view>

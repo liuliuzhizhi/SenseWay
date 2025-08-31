@@ -1,0 +1,80 @@
+<!--pages/condition_report/condition_report.wxml-->
+<view class="page">
+
+<!-- 顶部雷达图区域 -->
+<view class="radar-wrap">
+  <canvas canvas-id="radar" class="radar-canvas"></canvas>
+
+  <!-- 九个角的标签（用绝对定位，跟随计算后的坐标） -->
+  <block wx:for="{{labelPositions}}" wx:key="name">
+    <text class="label" style="left: {{item.x}}rpx; top: {{item.y}}rpx;">
+      {{item.name}}质
+    </text>
+  </block>
+
+</view>
+
+  <view class="legend">
+    <view class="legend-dot"></view>
+    <text>最近一次</text>
+  </view>
+
+
+
+<!-- 体质说明卡片 -->
+<view class="card">
+  <!-- 结果卡片：您最有可能的体质是 -->
+  <view class="result-title">您最有可能的体质是</view>
+  <view class="badge">{{topType}}</view>
+  <view class="row">
+    <text class="key">【形体特征】</text>
+    <text class="val">{{desc.shape}}</text>
+  </view>
+  <view class="row">
+    <text class="key">【心理特征】</text>
+    <text class="val">{{desc.mind}}</text>
+  </view>
+  <view class="row">
+    <text class="key">【体质特征】</text>
+    <text class="val">{{desc.body}}</text>
+  </view>
+  <view class="row">
+    <text class="key">【日常调理】</text>
+    <text class="val">{{desc.daily}}</text>
+  </view>
+</view>
+
+<!-- 指导意见 -->
+<view class="guide-title">指导意见</view>
+
+<view class="accordion">
+  <view class="item" bindtap="toggle" data-key="mood">
+    <text class="arrow {{open.mood?'down':'right'}}">▶</text>
+    <text class="title">情绪调理（点击展开）</text>
+  </view>
+  <view wx:if="{{open.mood}}" class="content">
+    <text>{{desc.guide.mood}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="item" bindtap="toggle" data-key="diet">
+    <text class="arrow {{open.diet?'down':'right'}}">▶</text>
+    <text class="title">饮食调理（点击展开）</text>
+  </view>
+  <view wx:if="{{open.diet}}" class="content">
+    <text>{{desc.guide.diet}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="item" bindtap="toggle" data-key="life">
+    <text class="arrow {{open.life?'down':'right'}}">▶</text>
+    <text class="title">生活作息与运动（点击展开）</text>
+  </view>
+  <view wx:if="{{open.life}}" class="content">
+    <text>{{desc.guide.life}}</text>
+  </view>
+</view>
+
+</view>

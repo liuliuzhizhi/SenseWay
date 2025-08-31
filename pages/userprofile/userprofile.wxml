@@ -1,0 +1,60 @@
+<!--pages/userprofile/userprofile.wxml-->
+<view class="page">
+
+<!-- 顶部头像与基本标识 -->
+<view class="row1">
+  <view class="avatar-wrap" bindtap="onTapAvatar">
+    <image class="avatar" src="{{profile.avatarUrl || '/figure/default_icon.png'}}" mode="aspectFill"></image>
+    <view class="avatar-mask">上传头像</view>
+  </view>
+  <view class="id-wrap">
+    <view class="name">{{ profile.username || '未命名'}}</view>
+    <view class="mobile">{{maskedMobile}}</view>
+  </view>
+</view>
+
+<!-- 基本信息 -->
+<view class="section-card">
+  <view class="section-header">
+    <text class="title">基本信息</text>
+    <button class="edit-btn" size="mini" bindtap="goEditBasic">编辑</button>
+  </view>
+  <view class="row2">
+    <view class="item"><text class="label">性别</text><text class="value">{{profile.gender || '-'}}</text></view>
+    <view class="item"><text class="label">身高</text><text class="value">{{profile.height ? profile.height + 'cm' : '-'}}</text></view>
+  </view>
+  <view class="divider"></view>
+  <view class="row2">
+    <view class="item"><text class="label">年龄</text><text class="value">{{profile.age || '-'}}</text></view>
+    <view class="item"><text class="label">体重</text><text class="value">{{profile.weight ? profile.weight + 'kg' : '-'}}</text></view>  
+  </view>
+  <view class="divider"></view>
+  <view class="row4"><text class="label">BMI</text><text class="value">{{computedBMI || '-'}}</text></view>
+</view>
+
+<!-- 过敏和疾病史 -->
+<view class="section-card">
+  <view class="section-header">
+    <text class="title">过敏和疾病史</text>
+    <button class="edit-btn" size="mini" bindtap="goEditMedical">编辑</button>
+  </view>
+  <view class="row1"><text class="label">过敏源</text><text class="value">{{profile.allergen || '-'}}</text></view>
+  <view class="divider"></view>
+  <view class="row3"><text class="label">疾病史</text><text class="value">{{profile.disease || '-'}}</text></view>
+</view>
+
+<!-- 健康和饮食偏好 -->
+<view class="section-card">
+  <view class="section-header">
+    <text class="title">健康和饮食偏好</text>
+    <button class="edit-btn" size="mini" bindtap="goEditDiet">编辑</button>
+  </view>
+  <view class="row3"><text class="label">口味偏好</text><text class="value">{{profile.taste || '-'}}</text></view>
+  <view class="divider"></view>
+  <view class="row3"><text class="label">荤素偏好</text><text class="value">{{profile.carnVeg || '-'}}</text></view>
+  <view class="divider"></view>
+  <view class="row3"><text class="label">饮食观念</text><text class="value">{{profile.dietConcept || '-'}}</text></view>
+</view>
+
+<view wx:if="{{loading}}" class="loading">加载中…</view>
+</view>

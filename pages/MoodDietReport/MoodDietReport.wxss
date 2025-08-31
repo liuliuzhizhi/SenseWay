@@ -1,0 +1,145 @@
+/* 基本布局 */
+.page {
+  background-color: #f5f2e7;
+  height: 100vh;    /* 高度占页面100%*/
+  box-sizing: border-box;
+  font-family: "STZhongsong";
+  padding: 20rpx;
+}
+
+/* 卡片 */
+.card {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+}
+
+/* 卡片头部 */
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12rpx;
+  background-color: #fff;
+}
+.title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+.corr {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 折线图区域 */
+.chart-wrap {
+  display: flex;
+  background-color: rgb(250, 250, 250);
+  position: relative;
+  height: 420rpx;
+  overflow: visible;
+  justify-content: center;
+}
+.line-canvas {
+  background-color: #fff;
+  width: 750rpx;
+  height: 420rpx;
+  display: block;
+}
+
+/* 小卡片样式（浮动信息） */
+.tooltip {
+  position: absolute;
+  transform: translate(-50rpx, -110rpx); /* 默认在目标点上方，居中 */
+  background: rgba(0,0,0,0.75);
+  color: rgb(255, 255, 255);
+  padding: 12rpx 14rpx;
+  border-radius: 8rpx;
+  max-width: 240rpx;
+  text-align: center;
+  z-index: 20;
+  box-shadow: 0 6rpx 18rpx rgba(0,0,0,0.2);
+}
+.tooltip.small {
+  transform: translate(-50%, -120%);
+  padding: 10rpx 12rpx;
+  font-size: 24rpx;
+}
+.tooltip-text {
+  line-height: 1.4;
+  font-size: 26rpx;
+  display: block;
+}
+
+.illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 两个小图并排 */
+.two-charts {
+  display: flex;
+  justify-content: space-around;
+  height: 500rpx;
+}
+.chart-col {
+  flex: 1 1 48%;
+}
+.chart-wrap-small {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 100%;
+}
+.small-canvas1 {
+  background-color: rgb(255, 255, 255);
+  width: 328rpx;
+  height: 360rpx;
+}
+
+.small-canvas2 {
+  background-color: rgb(255, 255, 255);
+  width: 328rpx;
+  height: 360rpx;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* 竖直排列两行 */
+  height: 60rpx;
+  align-items: flex-start; /* 左对齐 */
+  padding: 2rpx;
+  background-color: rgb(255, 255, 255);
+  font-family: "STZhongsong";
+}
+
+.color-row {
+  display: flex;             /* 每行水平排列 */
+  justify-content: center;
+  margin-bottom: 2rpx;      /* 行间距 */
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+}
+
+.color-box {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;      /* 颜色条之间的间隔 */
+}
+
+.color-text {
+  line-height: 40rpx;       /* 文字与颜色条对齐 */
+  font-size: 30rpx;
+  color: #333;
+  margin-left: 1rpx;       /* 文本与颜色条之间的间隔 */
+}
+
+/* 响应：在窄屏上两个图竖排 */
+@media (max-width: 420px) {
+  .two-charts { flex-direction: column; }
+  .chart-col { width: 100%; }
+}

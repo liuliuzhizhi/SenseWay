@@ -1,0 +1,163 @@
+/* pages/my/my.wxss */
+.page { background:#f5f2e7; min-height:100vh; padding:16rpx 20rpx 40rpx; }
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar { width: 150rpx;    /*用户头像的椭圆宽*/  
+          height: 150rpx;   /*用户头像的椭圆高*/  
+          border-radius: 50%; /* 保持圆形 */ 
+          background:#eaeaea; 
+          margin-top: 40rpx;
+          margin-bottom: 20rpx;
+        }
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.account {
+  color: #666;
+}
+
+.info {
+  display: flex;
+  border-radius:24rpx; 
+  justify-content: space-around;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 4rpx 5rpx 1rpx rgba(0,0,0,0.15) ;
+}
+
+.info-item {
+  display: flex;           /* 用 flex 布局 */
+  flex-direction: column;  /* 主轴为竖直方向 */
+  align-items: center;     /* 水平居中*/
+  justify-content: space-around;  
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.image { 
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.label {
+  font-size: 35rpx;
+  color: #3a1a01;
+  font-family: "STZhongsong";
+}
+
+.points, .rank, .membership {
+  font-size: 18px;
+  color: #333;
+}
+
+.reports, .settings {
+  margin-bottom: 20px;
+  border-radius: 24rpx;
+  background-color: #fff;
+  box-shadow: 4rpx 5rpx 1rpx rgba(0,0,0,0.15) ;
+  font-family: "STZhongsong";
+  margin-bottom: 70rpx;
+}
+
+.report-item1 {
+  display: flex;              /* 弹性布局 */
+  align-items: center;        /* 垂直居中 */
+  height: 90rpx;
+  font-size: 35rpx;
+  font-weight: 1000;
+  color: #3a1a01;
+  font-family: "STZhongsong";
+  margin-left: 20rpx;
+  gap: 30rpx;
+}
+
+.report-item2 {
+  display: flex;              /* 弹性布局 */
+  align-items: center;        /* 垂直居中 */
+  height: 90rpx;
+  font-size: 35rpx;
+  font-weight: 1000;
+  color: #3a1a01;
+  font-family: "STZhongsong";
+  margin-left: 25rpx;
+  gap: 35rpx;
+}
+
+.report-item3 {
+  display: flex;              /* 弹性布局 */
+  align-items: center;        /* 垂直居中 */
+  height: 90rpx;
+  font-size: 35rpx;
+  font-weight: 1000;
+  color: #3a1a01;
+  font-family: "STZhongsong";
+  margin-left: 25rpx;
+  gap: 35rpx;
+}
+
+.report-item:active, .settings-item:active {
+  background-color: #f0f0f0;
+}
+
+.settings-item {
+  display: flex;              /* 弹性布局 */
+  align-items: center;        /* 垂直居中 */
+  height: 90rpx;
+  font-size: 35rpx;
+  font-weight: 1000;
+  color: #3a1a01;
+  font-family: "STZhongsong";
+  margin-left: 25rpx;
+  gap: 40rpx;
+}
+
+.arrow1 {
+  font-size: 100rpx;
+  color: #b48d83;
+  margin-bottom: 15rpx;
+  margin-left: 250rpx;
+}
+
+.arrow2 {
+  font-size: 100rpx;
+  color: #b48d83;
+  margin-bottom: 15rpx;
+  margin-left: 245rpx;
+}
+
+.arrow3 {
+  font-size: 100rpx;
+  color: #b48d83;
+  margin-bottom: 15rpx;
+  margin-left: 245rpx;
+}
+
+.arrow4 {
+  font-size: 100rpx;
+  color: #b48d83;
+  margin-bottom: 15rpx;
+  margin-left: 460rpx;
+}
+
+
+.bottom_navigate {
+  position: fixed;      /* 固定位置 */
+  bottom: 0;            /* 距离底部 0 */
+  left: 0;
+  width: 100%;          /* 占满整个宽度 */
+  display: flex;
+  justify-content: space-around; /* 子元素均分 */
+  align-items: center;
+  height: 100rpx;       /* 高度自定义 */
+  background-color: rgb(252, 222, 158);
+  border-top: 1rpx solid #eee; /* 顶部分隔线 */
+}

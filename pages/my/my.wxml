@@ -1,0 +1,68 @@
+<!--pages/my/my.wxml-->
+<view class="page">
+
+  <view class="profile">
+    <image class="avatar" src="/figure/default_icon.png"></image>
+    <view class="name"> {{ profile.username || '未命名'}}</view>
+    <text class="account">账号：XXXXXXXX</text>
+  </view>
+  
+  <view class="info"> 
+    <view class="info-item"> 
+      <image style="width: 70rpx; height: 70rpx; background-color: #ffffff;" src="/figure/mycredit.png" mode="aspectFill" ></image>  
+      <text class = "label">我的积分</text>
+      <text class="points">250</text>
+    </view>
+    <view class="info-item">
+      <image style="width: 70rpx; height: 70rpx; background-color: #ffffff;" src="/figure/ranking.png" mode="aspectFill" ></image>
+      <text class="label" >排行榜</text>
+      <text class="rank">22</text>
+    </view>
+    <view class="info-item">
+      <image style="width: 70rpx; height: 70rpx; background-color: #ffffff;" src="/figure/member.png" mode="aspectFill" ></image>
+      <text class="label">我的会员</text>
+      <image style="width: 140rpx; height: 45rpx; background-color: #ffffff;" src="/figure/new_member.png" mode="aspectFill" ></image>
+    </view>
+  </view>
+  
+  <view class="reports">
+    <navigator url="/pages/userprofile/userprofile" class="report-item1">
+      <image style="width: 35px; height: 30px; background-color: #ffffff;" src="/figure/document.png" mode="aspectFill" ></image>
+      <text>我的个人信息档案</text>
+      <text class="arrow1">›</text>
+    </navigator>
+    <navigator url="/pages/condition_report/condition_report" class="report-item2">
+      <image style="width: 30px; height: 32px; background-color: #ffffff;" src="/figure/condition_report.png" mode="aspectFill" ></image>
+      <text>我的中医体质报告</text>
+      <text class="arrow2">›</text>
+    </navigator>
+    <navigator url="/pages/MoodDietReport/MoodDietReport" class="report-item3">
+      <image style="width: 30px; height: 29px; background-color: #ffffff;" src="/figure/mood_report.png" mode="aspectFill" ></image>
+      <text>我的情绪饮食报告</text>
+      <text class="arrow3">›</text>
+    </navigator>
+  </view>
+  
+  <view class="settings">
+    <navigator url="/pages/settings/settings" class="settings-item">
+      <image style="width: 26px; height: 25px; background-color: #ffffff;" src="/figure/settings.png" mode="aspectFill" ></image>
+      <text>设置</text>
+      <text class="arrow4">›</text>
+    </navigator>
+  </view>
+
+  <view class="bottom_navigate">
+    <navigator url="/pages/home/home">
+      <image style="width: 28px; height: 40px; " src="/figure/home_navigate.png" mode="aspectFill" ></image>
+    </navigator>
+    <navigator url="/pages/assistant/assistant">
+      <image style="width: 40px; height: 40px; " src="/figure/assistant_navigate.png" mode="aspectFill" ></image>
+    </navigator>
+    <navigator url="/pages/society/society">
+      <image style="width: 30px; height: 40px; " src="/figure/society_navigate.png" mode="aspectFill" ></image>
+    </navigator>
+    <navigator url="/pages/my/my">
+      <image style="width: 26px; height: 40px; " src="/figure/my_navigate.png" mode="aspectFill" ></image>
+    </navigator>
+  </view>
+</view>
